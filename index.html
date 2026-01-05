@@ -17,50 +17,117 @@
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23b48632' fill-opacity='0.05'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 0l5 20H48l5-20zm-24 50l5 20h-10l5-20zm24 0l5 20H48l5-20zM11 50l5 20H6l5-20zm24-50l5 20h-10l5-20zm0 50l5 20h-10l5-20zm24-25l5 20H48l5-20zm-48 0l5 20H6l5-20zm24 0l5 20h-10l5-20z'/%3E%3C/g%3E%3C/svg%3E");
         }
         .hero-bg { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80'); background-size: cover; background-position: center; }
-        .instagram-icon { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .tiktok-icon { color: #000000; filter: drop-shadow(2px 0px 0px #fd3e3e) drop-shadow(-2px 0px 0px #4de8f4); }
-        .whatsapp-icon { color: #25D366; }
-        .category-card { border: 1px solid rgba(180, 134, 50, 0.2); transition: 0.3s; height: 100%; }
+        .category-card { border: 1px solid rgba(180, 134, 50, 0.2); transition: 0.3s; height: 100%; background: white; }
         .category-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        
-        /* Telefonda suratlaryň bozulmazlygy üçin fix */
         .img-container { width: 100%; height: 280px; overflow: hidden; }
         .img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+        #sideNav { height: 100%; width: 0; position: fixed; z-index: 1000; top: 0; left: 0; background-color: #111; overflow-x: hidden; transition: 0.5s; padding-top: 60px; }
+        #sideNav a { padding: 15px 32px; text-decoration: none; font-size: 1.2rem; color: #818181; display: block; transition: 0.3s; text-transform: uppercase; font-weight: bold; border-bottom: 1px solid #222; }
+        #sideNav a:hover { color: #f1f1f1; background-color: #1a1a1a; border-left: 4px solid #b48632; }
+        #sideNav .closebtn { position: absolute; top: 10px; right: 25px; font-size: 36px; color: white; cursor: pointer; }
+        
+        .menu-btn-container { cursor: pointer; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
+        .menu-text { font-weight: 800; font-size: 18px; letter-spacing: 1px; color: #111; text-transform: uppercase; }
+        .logo-text:hover { color: #b48632; transition: 0.3s; }
+
+        @keyframes dynamicMove {
+            0% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-10px, -5px) scale(1.1); }
+            50% { transform: translate(10px, 5px) scale(0.9); }
+            75% { transform: translate(-5px, 10px) scale(1.05); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .social-icon-box:hover i { animation: dynamicMove 0.8s ease-in-out infinite; }
+        
+        .instagram-icon { color: #E4405F; }
+        .tiktok-icon { color: #000000; }
+        .whatsapp-icon { color: #25D366; }
+
+        /* HAS ULY Gözleg barasy */
+        .search-bar-container { background: #f0f2f5; border-radius: 12px; padding: 12px 25px; display: flex; align-items: center; width: 100%; transition: 0.3s; border: 2px solid transparent; }
+        .search-bar-container:focus-within { background: #fff; border-color: #b48632; box-shadow: 0 8px 20px rgba(180, 134, 50, 0.15); }
+        
+        /* HAS ULY Favori we Profil Belgileri */
+        .nav-icon { font-size: 32px; transition: 0.3s; }
+        .nav-icon:hover { transform: scale(1.2); opacity: 0.8; }
+        .heart-red { color: #ff0000; } 
+        .user-black { color: #000000; } 
+        
+        /* HAS ULY Nomerler */
+        .contact-numbers { font-size: 16px; line-height: 1.4; color: #b48632; font-weight: 800; letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
 
-    <nav class="bg-white py-5 shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center gap-4">
-            <h1 class="brand-font text-2xl font-bold text-gray-800 uppercase">Bezeg Ussady</h1>
-            <div class="flex flex-wrap justify-center items-center space-x-4 md:space-x-8">
-                <a href="#galeriya" class="hover:text-amber-600 font-bold transition text-xs md:text-sm">KATALOG</a>
-                <a href="satlyk-harytlar.html" class="bg-amber-600 text-white px-4 py-2 rounded-sm font-bold hover:bg-amber-700 transition text-xs md:text-sm text-white">SATLYK HARYTLAR</a>
-                <div class="flex flex-col text-right text-[10px] md:text-xs font-bold text-amber-700">
-                    <a href="tel:+99365184868">+993 65 184868</a>
-                    <a href="tel:+99362595555">+993 62 595555</a>
+    <nav class="bg-white py-6 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex flex-col gap-6">
+            
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-8">
+                    <div class="menu-btn-container" onclick="openNav()">
+                        <span class="text-4xl text-gray-900">&#9776;</span>
+                        <span class="menu-text">Menu</span>
+                    </div>
+                    <a href="index.html" class="logo-text">
+                        <h1 class="brand-font text-2xl md:text-5xl font-black text-gray-900 uppercase leading-none border-l-8 border-amber-600 pl-4">
+                            Bezeg <span class="text-amber-600 italic">Ussady</span>
+                        </h1>
+                    </a>
                 </div>
+
+                <div class="flex items-center gap-8">
+                    <a href="favoriler.html" title="Favorilerim" class="nav-icon heart-red">
+                        <i class="fas fa-heart"></i>
+                    </a>
+
+                    <a href="profil.html" title="Profilim" class="nav-icon user-black">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                    
+                    <div class="hidden lg:block text-right contact-numbers">
+                        <p><i class="fas fa-phone-alt mr-2"></i> +993 65 184868</p>
+                        <p><i class="fas fa-phone-alt mr-2"></i> +993 62 595555</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full max-w-5xl mx-auto">
+                <form onsubmit="executeSearch(event)" class="search-bar-container">
+                    <i class="fas fa-search text-gray-500 text-2xl mr-4"></i>
+                    <input id="searchInput" type="text" placeholder="Islän mebeliňizi gözläň..." class="bg-transparent outline-none w-full text-gray-800 text-xl font-medium py-1">
+                    <button type="submit" class="hidden">Gözle</button>
+                </form>
             </div>
         </div>
     </nav>
 
+    <div id="sideNav">
+        <span class="closebtn" onclick="closeNav()">&times;</span>
+        <a href="index.html" onclick="closeNav()">Baş Sahypa</a>
+        <a href="satlyk-harytlar.html" onclick="closeNav()">Satlyk Harytlar</a>
+        <a href="#galeriya" onclick="closeNav()">Katalog</a>
+        <a href="#taslama" onclick="closeNav()">Dizaýn we Taslama</a>
+        <a href="#taslama" onclick="closeNav()">Taýýar Önümler</a>
+    </div>
+
     <section class="hero-bg h-[60vh] flex items-center justify-center text-center text-white px-4">
         <div>
-            <h2 class="brand-font text-4xl md:text-7xl mb-6 uppercase text-white text-white text-white">Bezeg Ussady</h2>
-            <div class="h-1 w-32 bg-amber-600 mx-auto mb-6"></div>
+            <h2 class="brand-font text-4xl md:text-7xl mb-6 uppercase text-white">Bezeg Ussady</h2>
+            <div class="h-1 w-32 bg-amber-600 mx-auto mb-6 shadow-lg"></div>
             <p class="text-sm md:text-2xl font-light italic tracking-widest uppercase mb-10 text-white">Siz arzuw ediň, biz çyzaly we ýasaly!</p>
-            <a href="#galeriya" class="bg-amber-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-amber-700 transition uppercase tracking-widest text-xs md:text-sm text-white text-white">Işlerimizi Görüň</a>
+            <a href="#galeriya" class="bg-amber-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-amber-700 transition uppercase tracking-widest text-xs md:text-sm text-white">Işlerimizi Görüň</a>
         </div>
     </section>
 
-    <section id="galeriya" class="py-20 bg-pattern">
+    <section id="galeriya" class="py-20 bg-pattern text-center">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h3 class="brand-font text-3xl uppercase italic underline decoration-amber-500 underline-offset-8 text-gray-800">Katalog</h3>
-                <p class="mt-6 text-gray-600 font-bold uppercase tracking-tighter">Bölümi saýlaň we ähli işlerimizi görüň</p>
+                <p class="mt-6 text-gray-600 font-bold uppercase tracking-tighter italic">Bölümi saýlaň we ähli işlerimizi görüň</p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                 <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center">
                     <div class="img-container"><img src="ashana1.jpg" alt="Aşhana"></div>
                     <div class="p-6 text-center border-t border-amber-100">
@@ -85,7 +152,7 @@
 
                 <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center">
                     <div class="img-container"><img src="myhman1.jpg" alt="Myhman"></div>
-                    <div class="p-6 text-center border-t border-amber-100 text-center">
+                    <div class="p-6 text-center border-t border-amber-100 text-center text-center">
                         <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800">Myhman Otag</h4>
                         <a href="myhman1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition" data-gallery="myhman">SURATLARY GÖR</a>
                         <a href="myhman2.jpg" class="glightbox hidden" data-gallery="myhman"></a>
@@ -94,7 +161,7 @@
                     </div>
                 </div>
 
-                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center text-center">
+                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center text-center text-center">
                     <div class="img-container"><img src="chaga1.jpg" alt="Çaga"></div>
                     <div class="p-6 text-center border-t border-amber-100 text-center">
                         <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800 text-center">Çaga Otaglary</h4>
@@ -105,24 +172,24 @@
                     </div>
                 </div>
 
-                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center text-center">
+                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center text-center text-center">
                     <div class="img-container"><img src="ofis1.jpg" alt="Ofis"></div>
-                    <div class="p-6 text-center border-t border-amber-100 text-center text-center text-center">
+                    <div class="p-6 text-center border-t border-amber-100 text-center">
                         <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800 text-center">Ofis Mebelleri</h4>
                         <a href="ofis1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition text-center" data-gallery="ofis">SURATLARY GÖR</a>
-                        <a href="ofis2.jpg" class="glightbox hidden" data-gallery="ofis"></a>
-                        <a href="ofis3.jpg" class="glightbox hidden" data-gallery="ofis"></a>
-                        <a href="ofis4.jpg" class="glightbox hidden" data-gallery="ofis"></a>
+                        <a href="ofis2.jpg" class="glightbox hidden" data-gallery="ofis text-center"></a>
+                        <a href="ofis3.jpg" class="glightbox hidden" data-gallery="ofis text-center"></a>
+                        <a href="ofis4.jpg" class="glightbox hidden" data-gallery="ofis text-center"></a>
                     </div>
                 </div>
 
-                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center text-center">
+                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center text-center text-center">
                     <div class="img-container"><img src="gapy1.jpg" alt="Gapy"></div>
-                    <div class="p-6 text-center border-t border-amber-100 text-center text-center text-center">
-                        <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800">Gapy & Penjire</h4>
+                    <div class="p-6 text-center border-t border-amber-100 text-center text-center">
+                        <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800 text-center text-center">Gapy & Penjire</h4>
                         <a href="gapy1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition" data-gallery="gapy">SURATLARY GÖR</a>
-                        <a href="gapy2.jpg" class="glightbox hidden" data-gallery="gapy text-center"></a>
-                        <a href="gapy3.jpg" class="glightbox hidden" data-gallery="gapy text-center"></a>
+                        <a href="gapy2.jpg" class="glightbox hidden" data-gallery="gapy text-center text-center"></a>
+                        <a href="gapy3.jpg" class="glightbox hidden" data-gallery="gapy text-center text-center"></a>
                         <a href="gapy4.jpg" class="glightbox hidden" data-gallery="gapy text-center text-center"></a>
                     </div>
                 </div>
@@ -130,66 +197,94 @@
         </div>
     </section>
 
-    <section id="taslama" class="py-24 bg-zinc-900 text-white border-y border-amber-600/20">
+    <section id="taslama" class="py-24 bg-zinc-900 text-white border-y border-amber-600/20 text-center">
         <div class="container mx-auto px-6">
-            <h3 class="brand-font text-3xl md:text-4xl mb-6 text-amber-500 uppercase italic text-center text-white">Ilki Çyzýarys, Soňra Ýasaýarys</h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-16 text-center">
-                <div class="bg-zinc-800/50 p-8 rounded-sm border border-zinc-700">
-                    <h4 class="text-amber-500 font-bold uppercase tracking-widest mb-6 text-left border-l-4 border-amber-500 pl-4 text-white">Dizaýn we Taslama</h4>
-                    <ul class="space-y-4 font-medium text-gray-200 mb-10 text-sm md:text-lg text-left text-white">
-                        <li class="flex items-center text-white"><i class="fas fa-check-circle text-amber-500 mr-3 text-white"></i> Takyk ölçeg we dizaýn</li>
+            <h3 class="brand-font text-3xl md:text-4xl mb-6 text-amber-500 uppercase italic text-center">Ilki Çyzýarys, Soňra Ýasaýarys</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 text-center">
+                <div class="bg-zinc-800/50 p-8 rounded-sm border border-zinc-700 text-left text-white">
+                    <h4 class="text-amber-500 font-bold uppercase tracking-widest mb-6 border-l-4 border-amber-500 pl-4 text-white">Dizaýn we Taslama</h4>
+                    <ul class="space-y-4 mb-10 text-white">
+                        <li class="flex items-center text-white"><i class="fas fa-check-circle text-amber-500 mr-3"></i> Takyk ölçeg we dizaýn</li>
                         <li class="flex items-center text-white"><i class="fas fa-check-circle text-amber-500 mr-3 text-white"></i> 3D Render</li>
-                        <li class="flex items-center text-white"><i class="fas fa-check-circle text-amber-500 mr-3 text-white text-white"></i> Ýokary hilli gurnama</li>
+                        <li class="flex items-center text-white"><i class="fas fa-check-circle text-amber-500 mr-3 text-white"></i> Ýokary hilli gurnama</li>
                     </ul>
-                    <div class="grid grid-cols-1 gap-4">
+                    <div class="grid grid-cols-1 gap-4 text-center">
                         <a href="3d_cizgy1.jpg" class="glightbox relative group overflow-hidden block rounded-sm shadow-lg text-white" data-gallery="3d-design">
-                            <img src="3d_cizgy1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
+                            <img src="3d_cizgy1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500 text-white">
                             <p class="absolute top-2 left-2 bg-amber-600 px-3 py-1 text-[10px] font-bold uppercase z-10 text-white">3D Çyzgy #1</p>
                         </a>
-                        <a href="3d_cizgy2.jpg" class="glightbox hidden text-white" data-gallery="3d-design text-white"></a>
-                        <a href="3d_cizgy3.jpg" class="glightbox hidden text-white text-white" data-gallery="3d-design"></a>
-                        <p class="text-gray-400 text-xs mt-2 italic text-left">Ähli çyzgylary görmek üçin surata basyň.</p>
+                        <a href="3d_cizgy1.jpg" class="glightbox hidden" data-gallery="3d-design text-white"></a>
+                        <a href="3d_cizgy2.jpg" class="glightbox hidden" data-gallery="3d-design text-white"></a>
+                        <a href="3d_cizgy3.jpg" class="glightbox hidden" data-gallery="3d-design text-white"></a>
                     </div>
                 </div>
 
                 <div class="bg-zinc-800/50 p-8 rounded-sm border border-zinc-700 text-center">
-                    <h4 class="text-green-500 font-bold uppercase tracking-widest mb-8 text-left border-l-4 border-green-500 pl-4 text-white">Taýýar Önümler</h4>
-                    <div class="grid grid-cols-1 gap-4 text-center">
+                    <h4 class="text-green-500 font-bold uppercase tracking-widest mb-8 border-l-4 border-green-500 pl-4 text-white">Taýýar Önümler</h4>
+                    <div class="grid grid-cols-1 gap-4 text-center text-white">
                         <a href="tayyar_onum1.jpg" class="glightbox relative group overflow-hidden block rounded-sm shadow-lg text-white" data-gallery="real-work">
                             <img src="tayyar_onum1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500 text-white">
-                            <p class="absolute top-2 left-2 bg-green-600 px-3 py-1 text-[10px] font-bold uppercase z-10 text-white">Hakyky Netije #1</p>
+                            <p class="absolute top-2 left-2 bg-green-600 px-3 py-1 text-[10px] font-bold uppercase z-10 text-white text-white">Netije #1</p>
                         </a>
-                        <a href="tayyar_onum2.jpg" class="glightbox hidden text-white" data-gallery="real-work text-white"></a>
-                        <a href="tayyar_onum3.jpg" class="glightbox hidden text-white text-white" data-gallery="real-work"></a>
-                        <p class="text-gray-400 text-xs mt-2 italic text-center font-bold uppercase tracking-widest text-white">Bitirilen işler</p>
+                        <a href="tayyar_onum1.jpg" class="glightbox hidden" data-gallery="real-work text-white"></a>
+                        <a href="tayyar_onum2.jpg" class="glightbox hidden" data-gallery="real-work text-white"></a>
+                        <a href="tayyar_onum3.jpg" class="glightbox hidden" data-gallery="real-work text-white"></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-pattern py-16 border-t border-gray-200 text-center">
-        <div class="container mx-auto px-6 text-center text-center">
-            <h3 class="brand-font text-2xl mb-12 uppercase tracking-widest text-center text-gray-800">Biz bilen habarlaşyň</h3>
+    <footer class="bg-pattern py-16 border-t border-gray-200">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="brand-font text-2xl mb-12 uppercase italic text-gray-800 text-center">Biz bilen habarlaşyň</h3>
             <div class="flex justify-center space-x-12 mb-16 text-center">
-                <a href="https://www.instagram.com/decormasterp?utm_source=qr" target="_blank" class="group flex flex-col items-center">
-                    <i class="fab fa-instagram text-4xl mb-2 instagram-icon transition group-hover:scale-110"></i>
-                    <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-800">Instagram</span>
+                <a href="https://www.instagram.com/decormasterp?utm_source=qr" target="_blank" class="social-icon-box flex flex-col items-center">
+                    <i class="fab fa-instagram text-4xl mb-2 instagram-icon transition-transform"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-800 text-center">Instagram</span>
                 </a>
-                <a href="https://www.tiktok.com/@shadesign94?_r=1" target="_blank" class="group flex flex-col items-center">
-                    <i class="fab fa-tiktok text-4xl mb-2 tiktok-icon transition group-hover:scale-110"></i>
-                    <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-800 text-gray-800 text-gray-800">TikTok</span>
+                <a href="https://www.tiktok.com/@shadesign94?_r=1" target="_blank" class="social-icon-box flex flex-col items-center text-center">
+                    <i class="fab fa-tiktok text-4xl mb-2 tiktok-icon transition-transform"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-800 text-center">TikTok</span>
                 </a>
-                <a href="https://wa.me/99365184868" target="_blank" class="group flex flex-col items-center text-center">
-                    <i class="fab fa-whatsapp text-4xl mb-2 whatsapp-icon transition group-hover:scale-110"></i>
-                    <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-800">WhatsApp</span>
+                <a href="https://wa.me/99365184868" target="_blank" class="social-icon-box flex flex-col items-center text-center">
+                    <i class="fab fa-whatsapp text-4xl mb-2 whatsapp-icon transition-transform text-center"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-800 text-center">WhatsApp</span>
                 </a>
             </div>
-            <p class="brand-font text-gray-400 text-[10px] tracking-widest uppercase">&copy; 2026 Bezeg Ussady</p>
+            <p class="brand-font text-gray-500 text-xs tracking-widest uppercase text-center">&copy; 2026 Bezeg Ussady</p>
         </div>
     </footer>
 
+    <script>
+        function openNav() { document.getElementById("sideNav").style.width = "280px"; }
+        function closeNav() { document.getElementById("sideNav").style.width = "0"; }
+
+        function executeSearch(event) {
+            event.preventDefault();
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            if (query === "") return;
+
+            // Sahypadaky ähli h3, h4 we h1 teglerini barlayar
+            const sections = document.querySelectorAll('h4, h3, h2, h1');
+            let found = false;
+
+            sections.forEach(section => {
+                if (section.innerText.toLowerCase().includes(query)) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                    // Tapylan ýeri wagtlaýynça reňkleýär
+                    section.style.transition = "0.5s";
+                    section.style.color = "#b48632"; 
+                    setTimeout(() => section.style.color = "", 3000);
+                    found = true;
+                }
+            });
+
+            if (!found) {
+                alert("Üzr, gözleg boýunça hiç zat tapylmady.");
+            }
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     <script>const lightbox = GLightbox({ touchNavigation: true, loop: true });</script>
 </body>
