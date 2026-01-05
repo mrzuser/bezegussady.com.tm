@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css">
     
     <style>
-        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; background-color: #fcfcfc; }
+        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; background-color: #fcfcfc; overflow-x: hidden; }
         .brand-font { font-family: 'Cinzel', serif; letter-spacing: 3px; }
         .bg-pattern {
             background-color: #ffffff;
@@ -20,45 +20,49 @@
         .instagram-icon { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .tiktok-icon { color: #000000; filter: drop-shadow(2px 0px 0px #fd3e3e) drop-shadow(-2px 0px 0px #4de8f4); }
         .whatsapp-icon { color: #25D366; }
-        .category-card { border: 1px solid rgba(180, 134, 50, 0.2); transition: 0.3s; }
+        .category-card { border: 1px solid rgba(180, 134, 50, 0.2); transition: 0.3s; height: 100%; }
         .category-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        
+        /* Telefonda suratlaryň bozulmazlygy üçin fix */
+        .img-container { width: 100%; height: 280px; overflow: hidden; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body>
 
     <nav class="bg-white py-5 shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-6 flex justify-between items-center text-center">
-        <h1 class="brand-font text-2xl font-bold text-gray-800 uppercase">Bezeg Ussady</h1>
-        <div class="hidden md:flex items-center space-x-8">
-            <a href="#galeriya" class="hover:text-amber-600 font-bold transition">KATALOG</a>
-            <a href="satlyk-harytlar.html" class="bg-amber-600 text-white px-5 py-2 rounded-sm font-bold hover:bg-amber-700 transition">SATLYK HARYTLAR</a>
-            <div class="flex flex-col text-right">
-                <a href="tel:+99365184868" class="text-sm font-bold text-amber-700">+993 65 184868</a>
-                <a href="tel:+99362595555" class="text-sm font-bold text-amber-700">+993 62 595555</a>
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center gap-4">
+            <h1 class="brand-font text-2xl font-bold text-gray-800 uppercase">Bezeg Ussady</h1>
+            <div class="flex flex-wrap justify-center items-center space-x-4 md:space-x-8">
+                <a href="#galeriya" class="hover:text-amber-600 font-bold transition text-xs md:text-sm">KATALOG</a>
+                <a href="satlyk-harytlar.html" class="bg-amber-600 text-white px-4 py-2 rounded-sm font-bold hover:bg-amber-700 transition text-xs md:text-sm text-white">SATLYK HARYTLAR</a>
+                <div class="flex flex-col text-right text-[10px] md:text-xs font-bold text-amber-700">
+                    <a href="tel:+99365184868">+993 65 184868</a>
+                    <a href="tel:+99362595555">+993 62 595555</a>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <section class="hero-bg h-[60vh] flex items-center justify-center text-center text-white px-4">
         <div>
-            <h2 class="brand-font text-5xl md:text-7xl mb-6 uppercase text-white">Bezeg Ussady</h2>
+            <h2 class="brand-font text-4xl md:text-7xl mb-6 uppercase text-white text-white text-white">Bezeg Ussady</h2>
             <div class="h-1 w-32 bg-amber-600 mx-auto mb-6"></div>
-            <p class="text-lg md:text-2xl font-light italic tracking-widest uppercase mb-10 text-white">Siz arzuw ediň, biz çyzaly we ýasaly!</p>
-            <a href="#galeriya" class="bg-amber-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-amber-700 transition uppercase tracking-widest text-sm text-white">Işlerimizi Görüň</a>
+            <p class="text-sm md:text-2xl font-light italic tracking-widest uppercase mb-10 text-white">Siz arzuw ediň, biz çyzaly we ýasaly!</p>
+            <a href="#galeriya" class="bg-amber-600 text-white px-10 py-4 font-bold rounded-sm hover:bg-amber-700 transition uppercase tracking-widest text-xs md:text-sm text-white text-white">Işlerimizi Görüň</a>
         </div>
     </section>
 
-    <section id="galeriya" class="py-20 bg-pattern text-center">
+    <section id="galeriya" class="py-20 bg-pattern">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h3 class="brand-font text-3xl uppercase italic underline decoration-amber-500 underline-offset-8 text-gray-800">Katalog</h3>
-                <p class="mt-6 text-gray-600 font-bold uppercase tracking-tighter italic">Bölümi saýlaň we ähli işlerimizi görüň</p>
+                <p class="mt-6 text-gray-600 font-bold uppercase tracking-tighter">Bölümi saýlaň we ähli işlerimizi görüň</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg">
-                    <img src="ashana1.jpg" alt="Aşhana" class="w-full h-72 object-cover">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center">
+                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center">
+                    <div class="img-container"><img src="ashana1.jpg" alt="Aşhana"></div>
                     <div class="p-6 text-center border-t border-amber-100">
                         <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800">Aşhana Mebelleri</h4>
                         <a href="ashana1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition" data-gallery="ashana">SURATLARY GÖR</a>
@@ -68,20 +72,20 @@
                     </div>
                 </div>
 
-                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg">
-                    <img src="yatylyan1.jpg" alt="Ýatylýan" class="w-full h-72 object-cover">
+                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center">
+                    <div class="img-container"><img src="yatylyan1.jpg" alt="Ýatylýan"></div>
                     <div class="p-6 text-center border-t border-amber-100">
                         <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800">Ýatylýan Otag</h4>
-                        <a href="yatylyan1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition" data-gallery="yatylyan">SURATLARY GÖR</a>
+                        <a href="yatylyan1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition text-center" data-gallery="yatylyan">SURATLARY GÖR</a>
                         <a href="yatylyan2.jpg" class="glightbox hidden" data-gallery="yatylyan"></a>
                         <a href="yatylyan3.jpg" class="glightbox hidden" data-gallery="yatylyan"></a>
                         <a href="yatylyan4.jpg" class="glightbox hidden" data-gallery="yatylyan"></a>
                     </div>
                 </div>
 
-                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg">
-                    <img src="myhman1.jpg" alt="Myhman" class="w-full h-72 object-cover">
-                    <div class="p-6 text-center border-t border-amber-100">
+                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center">
+                    <div class="img-container"><img src="myhman1.jpg" alt="Myhman"></div>
+                    <div class="p-6 text-center border-t border-amber-100 text-center">
                         <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800">Myhman Otag</h4>
                         <a href="myhman1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition" data-gallery="myhman">SURATLARY GÖR</a>
                         <a href="myhman2.jpg" class="glightbox hidden" data-gallery="myhman"></a>
@@ -90,104 +94,103 @@
                     </div>
                 </div>
 
-                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg">
-                    <img src="chaga1.jpg" alt="Çaga" class="w-full h-72 object-cover">
-                    <div class="p-6 text-center border-t border-amber-100">
-                        <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800">Çaga Otaglary</h4>
-                        <a href="chaga1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition" data-gallery="chaga">SURATLARY GÖR</a>
-                        <a href="chaga2.jpg" class="glightbox hidden" data-gallery="chaga"></a>
-                        <a href="chaga3.jpg" class="glightbox hidden" data-gallery="chaga"></a>
-                        <a href="chaga4.jpg" class="glightbox hidden" data-gallery="chaga"></a>
+                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center text-center">
+                    <div class="img-container"><img src="chaga1.jpg" alt="Çaga"></div>
+                    <div class="p-6 text-center border-t border-amber-100 text-center">
+                        <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800 text-center">Çaga Otaglary</h4>
+                        <a href="chaga1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition text-center" data-gallery="chaga">SURATLARY GÖR</a>
+                        <a href="chaga2.jpg" class="glightbox hidden" data-gallery="chaga text-center"></a>
+                        <a href="chaga3.jpg" class="glightbox hidden" data-gallery="chaga text-center"></a>
+                        <a href="chaga4.jpg" class="glightbox hidden" data-gallery="chaga text-center"></a>
                     </div>
                 </div>
 
-                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg">
-                    <img src="ofis1.jpg" alt="Ofis" class="w-full h-72 object-cover">
-                    <div class="p-6 text-center border-t border-amber-100">
-                        <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800">Ofis Mebelleri</h4>
-                        <a href="ofis1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition" data-gallery="ofis">SURATLARY GÖR</a>
+                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center text-center">
+                    <div class="img-container"><img src="ofis1.jpg" alt="Ofis"></div>
+                    <div class="p-6 text-center border-t border-amber-100 text-center text-center text-center">
+                        <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800 text-center">Ofis Mebelleri</h4>
+                        <a href="ofis1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition text-center" data-gallery="ofis">SURATLARY GÖR</a>
                         <a href="ofis2.jpg" class="glightbox hidden" data-gallery="ofis"></a>
                         <a href="ofis3.jpg" class="glightbox hidden" data-gallery="ofis"></a>
                         <a href="ofis4.jpg" class="glightbox hidden" data-gallery="ofis"></a>
                     </div>
                 </div>
 
-                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg">
-                    <img src="gapy1.jpg" alt="Gapy" class="w-full h-72 object-cover">
-                    <div class="p-6 text-center border-t border-amber-100">
+                <div class="category-card relative overflow-hidden rounded-sm bg-white shadow-lg text-center text-center">
+                    <div class="img-container"><img src="gapy1.jpg" alt="Gapy"></div>
+                    <div class="p-6 text-center border-t border-amber-100 text-center text-center text-center">
                         <h4 class="brand-font text-lg font-bold uppercase mb-4 text-gray-800">Gapy & Penjire</h4>
                         <a href="gapy1.jpg" class="glightbox bg-gray-900 text-white px-6 py-2 text-xs font-bold tracking-widest hover:bg-amber-600 transition" data-gallery="gapy">SURATLARY GÖR</a>
-                        <a href="gapy2.jpg" class="glightbox hidden" data-gallery="gapy"></a>
-                        <a href="gapy3.jpg" class="glightbox hidden" data-gallery="gapy"></a>
-                        <a href="gapy4.jpg" class="glightbox hidden" data-gallery="gapy"></a>
+                        <a href="gapy2.jpg" class="glightbox hidden" data-gallery="gapy text-center"></a>
+                        <a href="gapy3.jpg" class="glightbox hidden" data-gallery="gapy text-center"></a>
+                        <a href="gapy4.jpg" class="glightbox hidden" data-gallery="gapy text-center text-center"></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="taslama" class="py-24 bg-zinc-900 text-white">
+    <section id="taslama" class="py-24 bg-zinc-900 text-white border-y border-amber-600/20">
         <div class="container mx-auto px-6">
-            <h3 class="brand-font text-4xl mb-6 text-amber-500 uppercase italic text-center">Ilki Çyzýarys, Soňra Ýasaýarys</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-16">
+            <h3 class="brand-font text-3xl md:text-4xl mb-6 text-amber-500 uppercase italic text-center text-white">Ilki Çyzýarys, Soňra Ýasaýarys</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-16 text-center">
                 <div class="bg-zinc-800/50 p-8 rounded-sm border border-zinc-700">
-                    <h4 class="text-amber-500 font-bold uppercase tracking-widest mb-6 text-left border-l-4 border-amber-500 pl-4">Dizaýn we Taslama</h4>
-                    <ul class="space-y-4 font-medium text-gray-200 mb-10 text-lg">
-                        <li class="flex items-center text-white"><i class="fas fa-check-circle text-amber-500 mr-3"></i> Takyk ölçeg we dizaýn</li>
-                        <li class="flex items-center text-white"><i class="fas fa-check-circle text-amber-500 mr-3"></i> 3D Render (Görselleşdirme)</li>
-                        <li class="flex items-center text-white"><i class="fas fa-check-circle text-amber-500 mr-3"></i> Ýokary hilli gurnama</li>
+                    <h4 class="text-amber-500 font-bold uppercase tracking-widest mb-6 text-left border-l-4 border-amber-500 pl-4 text-white">Dizaýn we Taslama</h4>
+                    <ul class="space-y-4 font-medium text-gray-200 mb-10 text-sm md:text-lg text-left text-white">
+                        <li class="flex items-center text-white"><i class="fas fa-check-circle text-amber-500 mr-3 text-white"></i> Takyk ölçeg we dizaýn</li>
+                        <li class="flex items-center text-white"><i class="fas fa-check-circle text-amber-500 mr-3 text-white"></i> 3D Render</li>
+                        <li class="flex items-center text-white"><i class="fas fa-check-circle text-amber-500 mr-3 text-white text-white"></i> Ýokary hilli gurnama</li>
                     </ul>
-                    <h4 class="text-amber-500 font-bold uppercase tracking-widest mb-6 text-left">3D Taslamalar</h4>
                     <div class="grid grid-cols-1 gap-4">
-                        <a href="3d_cizgy1.jpg" class="glightbox relative group overflow-hidden block rounded-sm shadow-lg" data-gallery="3d-design">
+                        <a href="3d_cizgy1.jpg" class="glightbox relative group overflow-hidden block rounded-sm shadow-lg text-white" data-gallery="3d-design">
                             <img src="3d_cizgy1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
                             <p class="absolute top-2 left-2 bg-amber-600 px-3 py-1 text-[10px] font-bold uppercase z-10 text-white">3D Çyzgy #1</p>
                         </a>
-                        <a href="3d_cizgy2.jpg" class="glightbox hidden" data-gallery="3d-design"></a>
-                        <a href="3d_cizgy3.jpg" class="glightbox hidden" data-gallery="3d-design"></a>
-                        <p class="text-gray-400 text-sm mt-2 italic text-left">Ähli çyzgylary görmek üçin surata basyň.</p>
+                        <a href="3d_cizgy2.jpg" class="glightbox hidden text-white" data-gallery="3d-design text-white"></a>
+                        <a href="3d_cizgy3.jpg" class="glightbox hidden text-white text-white" data-gallery="3d-design"></a>
+                        <p class="text-gray-400 text-xs mt-2 italic text-left">Ähli çyzgylary görmek üçin surata basyň.</p>
                     </div>
                 </div>
 
-                <div class="bg-zinc-800/50 p-8 rounded-sm border border-zinc-700">
-                    <h4 class="text-green-500 font-bold uppercase tracking-widest mb-8 text-left border-l-4 border-green-500 pl-4 text-center">Taýýar Önümler</h4>
-                    <div class="grid grid-cols-1 gap-4">
-                        <a href="tayyar_onum1.jpg" class="glightbox relative group overflow-hidden block rounded-sm shadow-lg" data-gallery="real-work">
-                            <img src="tayyar_onum1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
+                <div class="bg-zinc-800/50 p-8 rounded-sm border border-zinc-700 text-center">
+                    <h4 class="text-green-500 font-bold uppercase tracking-widest mb-8 text-left border-l-4 border-green-500 pl-4 text-white">Taýýar Önümler</h4>
+                    <div class="grid grid-cols-1 gap-4 text-center">
+                        <a href="tayyar_onum1.jpg" class="glightbox relative group overflow-hidden block rounded-sm shadow-lg text-white" data-gallery="real-work">
+                            <img src="tayyar_onum1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500 text-white">
                             <p class="absolute top-2 left-2 bg-green-600 px-3 py-1 text-[10px] font-bold uppercase z-10 text-white">Hakyky Netije #1</p>
                         </a>
-                        <a href="tayyar_onum2.jpg" class="glightbox hidden" data-gallery="real-work"></a>
-                        <a href="tayyar_onum3.jpg" class="glightbox hidden" data-gallery="real-work"></a>
-                        <p class="text-gray-400 text-sm mt-2 italic text-left text-center font-bold uppercase tracking-widest">Bitirilen işler</p>
+                        <a href="tayyar_onum2.jpg" class="glightbox hidden text-white" data-gallery="real-work text-white"></a>
+                        <a href="tayyar_onum3.jpg" class="glightbox hidden text-white text-white" data-gallery="real-work"></a>
+                        <p class="text-gray-400 text-xs mt-2 italic text-center font-bold uppercase tracking-widest text-white">Bitirilen işler</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-pattern py-16 border-t border-gray-200 text-center text-gray-800">
-        <div class="container mx-auto px-6 text-center text-gray-800">
+    <footer class="bg-pattern py-16 border-t border-gray-200 text-center">
+        <div class="container mx-auto px-6 text-center text-center">
             <h3 class="brand-font text-2xl mb-12 uppercase tracking-widest text-center text-gray-800">Biz bilen habarlaşyň</h3>
-            <div class="flex justify-center space-x-12 mb-16">
+            <div class="flex justify-center space-x-12 mb-16 text-center">
                 <a href="https://www.instagram.com/decormasterp?utm_source=qr" target="_blank" class="group flex flex-col items-center">
-                    <i class="fab fa-instagram text-5xl mb-2 instagram-icon transition group-hover:scale-110"></i>
-                    <span class="text-xs font-bold uppercase tracking-tighter text-gray-800">Instagram</span>
+                    <i class="fab fa-instagram text-4xl mb-2 instagram-icon transition group-hover:scale-110"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-800">Instagram</span>
                 </a>
-                <a href="https://www.tiktok.com/@shadesign94?_r=1" target="_blank" class="group flex flex-col items-center text-center">
-                    <i class="fab fa-tiktok text-5xl mb-2 tiktok-icon transition group-hover:scale-110"></i>
-                    <span class="text-xs font-bold uppercase tracking-tighter text-gray-800">TikTok</span>
+                <a href="https://www.tiktok.com/@shadesign94?_r=1" target="_blank" class="group flex flex-col items-center">
+                    <i class="fab fa-tiktok text-4xl mb-2 tiktok-icon transition group-hover:scale-110"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-800 text-gray-800 text-gray-800">TikTok</span>
                 </a>
-                <a href="https://wa.me/99365184868" target="_blank" class="group flex flex-col items-center">
-                    <i class="fab fa-whatsapp text-5xl mb-2 whatsapp-icon transition group-hover:scale-110"></i>
-                    <span class="text-xs font-bold uppercase tracking-tighter text-center text-gray-800">WhatsApp</span>
+                <a href="https://wa.me/99365184868" target="_blank" class="group flex flex-col items-center text-center">
+                    <i class="fab fa-whatsapp text-4xl mb-2 whatsapp-icon transition group-hover:scale-110"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-tighter text-gray-800">WhatsApp</span>
                 </a>
             </div>
-            <p class="brand-font text-gray-500 text-xs tracking-widest uppercase">&copy; 2026 Bezeg Ussady</p>
+            <p class="brand-font text-gray-400 text-[10px] tracking-widest uppercase">&copy; 2026 Bezeg Ussady</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     <script>const lightbox = GLightbox({ touchNavigation: true, loop: true });</script>
 </body>
-
 </html>
